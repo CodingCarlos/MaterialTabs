@@ -1,11 +1,16 @@
 function MaterialTabs(opts) {
 
+	this.allDom = null;
 	this.tabsDom = '.tabs';
 	this.swiperDom = '.swiper-container';
 	this.slide = 0;
 	this.minTabWidth = 0;
 
 	if(typeof(opts) != 'undefined') {
+		if( typeof(opts.container) != 'undefined' ) {
+			this.allDom = opts.container;
+		}
+
 		if( typeof(opts.tabsDom) != 'undefined' ) {
 			this.tabsDom = opts.tabsDom;
 		}
@@ -99,20 +104,34 @@ function MaterialTabs(opts) {
 
 
 	/* Swiper init */
-	this.swiper = new Swiper( this.swiperDom, {
+	var swiperUri = this.swiperDom;
+	if(this.allDom != null) {
+		var myAllDom = this.allDom.replace('.', '').replace('#', '');
+		$(this.allDom + ' ' + this.swiperDom).addClass(myAllDom + '-swiper-container');
+		swiperUri = '.' + myAllDom + '-swiper-container';
+	}
+
+	this.swiper = new Swiper( swiperUri, {
 		initialSlide: this.slide,
 		hashnav: hashnav,
 		spaceBetween: spaceBetween
 	});
 
 	/* Tabs init */
-	$(this.tabsDom).tabs();
+	var tabsUri = this.tabsDom;
+	if(this.allDom != null) {
+		tabsUri = this.allDom + ' ' + this.tabsDom;
+	}
+
+	$(tabsUri).tabs();
+
 	/* Tab select */
 	if(this.slide != 0) {
 		_this.selectTab( (this.slide + 1) );
 	}
 
-	if (this.minTabWidth > 0) {
+	/* Tab width */
+	if(this.minTabWidth > 0) {
 		$.each($('.tab'), function(key, val) {
 			$(val).css('min-width', this.minTabWidth + 'px');
 		});
