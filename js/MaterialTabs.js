@@ -1,4 +1,4 @@
-function MaterialTabs(dom, opts) {
+function MaterialTabs(opts) {
 
 	this.tabsDom = '.tabs';
 	this.swiperDom = '.swiper-container';
