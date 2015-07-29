@@ -1,12 +1,5 @@
 function MaterialTabs(dom, opts) {
 
-	/* Define properties of MaterialTabs objects */
-	this.dom = '.materialTabs';
-
-	if( typeof(dom) != 'undefined' ) {
-		this.dom = dom;	
-	}
-
 	this.tabsDom = '.tabs';
 	this.swiperDom = '.swiper-container';
 	this.slide = 0;
@@ -113,7 +106,7 @@ function MaterialTabs(dom, opts) {
 	});
 
 	/* Tabs init */
-	$( this.dom + ' ' + this.tabsDom).tabs();
+	$(this.tabsDom).tabs();
 	/* Tab select */
 	if(this.slide != 0) {
 		_this.selectTab( (this.slide + 1) );
