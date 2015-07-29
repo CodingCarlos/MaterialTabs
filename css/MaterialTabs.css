@@ -1,0 +1,12 @@
+.container-tabs {
+	width: 100% !important;
+	overflow: auto;
+}
+
+.container-tabs::-webkit-scrollbar { 
+    display: none; 
+}
+
+.swiper-container {
+	height: calc(100% - 48px);
+}

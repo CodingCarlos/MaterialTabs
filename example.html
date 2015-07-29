@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<title>MaterialTabs Example</title>
+	
+	<link rel="stylesheet" href="css/materialize/materialize.min.css" type="text/css" />
+	<link rel="stylesheet" href="css/swiper/swiper.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/MaterialTabs.css" type="text/css" />
+
+	<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/swiper/swiper.jquery.min.js"></script>
+	<script type="text/javascript" src="js/materialize/materialize.min.js"></script>
+	<script type="text/javascript" src="js/MaterialTabs.js"></script>
+
+</head>
+<body>
+
+	<div id="#misTabs">
+
+<!-- Navbar -->
+<div class="container-tabs">
+    <ul class="tabs">
+        <li class="tab col s3"><a href="#tab1">Tab1</a></li>
+        <li class="tab col s3"><a href="#tab2">Tab2</a></li>
+        <li class="tab col s3"><a href="#tab3">Tab3</a></li>
+        <li class="tab col s3"><a href="#tab4">Tab4</a></li>
+    </ul>
+</div>
+    
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" data-hash="tab1">
+            <button class="fdsa">PREV!!!</button>
+            Tab1
+            <button class="asdf">NEXT!!!</button>
+        </div>
+        <div class="swiper-slide" data-hash="tab2">
+            <button class="fdsa">PREV!!!</button>
+            Second tab
+            <button class="asdf">NEXT!!!</button>
+        </div>
+        <div class="swiper-slide" data-hash="tab3">
+            <button class="fdsa">PREV!!!</button>
+            Tabirth. Start here is realy easy.
+            <button class="asdf">NEXT!!!</button>
+        </div>
+        <div class="swiper-slide" data-hash="tab4">
+            <button class="fdsa">PREV!!!</button>
+            And another tab becouse life.
+            <button class="asdf">NEXT!!!</button>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <!-- <div class="swiper-pagination"></div> -->
+</div>
+
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var tabs = new MaterialTabs('#misTabs', {initialSlide: 2, tabsDom: '.tabs'});
+
+            function asdf() {
+                tabs.slideNext();
+            }
+            function fdsa() {
+                tabs.slidePrev();
+            }
+
+            $('.asdf').on('click', asdf);
+            $('.fdsa').on('click', fdsa);
+		});
+	
+	</script>
+</body>
+</html>
+
+
+
